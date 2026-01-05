@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FinalYearProject"
+        tools:targetApi="33">
+
+        <!-- Launch Screen -->
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Other Activities -->
+
+        <!--<activity android:name=".ProfileActivity" /> -->
+        <activity android:name=".AdminNoticeActivity" />
+        <activity android:name=".AdminDashboardActivity"/>
+        <activity android:name=".AdminSendNotificationMenuActivity"/>
+        <activity android:name=".StudentDashboardActivity" />
+
+        <activity android:name=".JobDescriptionActivity" />
+        <activity android:name=".EligibilityActivity" />
+        <activity android:name=".ApplyActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".JDActivity" />
+
+        <activity android:name=".AdminQueryActivity" />
+        <activity android:name="QueryActivity" />
+        <activity android:name=".SubmitQueryActivity" />
+        <activity android:name=".AnsweredQueriesActivity" />
+        <activity android:name=".QueryNotificationsActivity" />
+
+        <activity android:name=".AdminSignupActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".StudentLoginActivity"/>
+        <activity android:name=".SignupActivity" />
+
+        <activity android:name=".EditDriveActivity" />
+        <activity android:name=".UploadDriveActivity" />
+        <activity android:name=".AdminViewDrivesActivity" />
+        <activity android:name=".StudentViewDrivesActivity" />
+
+
+
+
+
+
+
+
+        <!-- Firebase Messaging Service -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>
